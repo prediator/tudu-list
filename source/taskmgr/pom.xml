@@ -1,0 +1,297 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.chinguyen</groupId>
+  <artifactId>spring-jqgrid</artifactId>
+  <packaging>war</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>spring-jqgrid Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    
+    <spring.core.version>3.2.0.RELEASE</spring.core.version>
+    <spring.security.version>3.1.4.RELEASE</spring.security.version>
+  	<cglib.version>2.2</cglib.version>
+  	<aspectj.version>1.6.10</aspectj.version>
+  	
+  	<mysql.connector.version>5.1.16</mysql.connector.version>
+  	<hibernate.version>4.2.0.Final</hibernate.version>
+  	<c3p0.version>0.9.1.2</c3p0.version>
+  	
+  	<slf4j.version>1.6.1</slf4j.version>
+  	<log4j.version>1.2.14</log4j.version>
+  	
+  	<javax.servlet-api.version>2.5</javax.servlet-api.version>
+  	<javax.jstl-taglibs.version>1.1.2</javax.jstl-taglibs.version>
+  	<jackson.version>1.9.3</jackson.version>
+  	
+  	<!-- Testing -->
+  	<mockito.version>1.8.5</mockito.version>
+  	<junit.version>4.8.2</junit.version>
+  	
+  	<!-- Plugins -->
+  	<maven.copy.plugin.version>0.2.3</maven.copy.plugin.version>
+  	<maven.compiler.plugin.version>2.3.2</maven.compiler.plugin.version>
+  </properties>
+  
+  <dependencies>
+      <!-- Spring Core -->
+    <dependency>
+    	<groupId>org.springframework</groupId>
+    	<artifactId>spring-core</artifactId>
+    	<version>${spring.core.version}</version>
+    </dependency>
+    <dependency>
+    	<groupId>org.springframework</groupId>
+    	<artifactId>spring-web</artifactId>
+    	<version>${spring.core.version}</version>
+    </dependency>
+    <dependency>
+    	<groupId>org.springframework</groupId>
+    	<artifactId>spring-tx</artifactId>
+    	<version>${spring.core.version}</version>
+    </dependency>
+    <dependency>
+    	<groupId>org.springframework</groupId>
+    	<artifactId>spring-webmvc</artifactId>
+    	<version>${spring.core.version}</version>
+    </dependency>
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-jdbc</artifactId>
+		<version>${spring.core.version}</version>
+	</dependency>
+    <dependency>
+    	<groupId>org.springframework</groupId>
+    	<artifactId>spring-oxm</artifactId>
+    	<version>${spring.core.version}</version>
+    </dependency>
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-aspects</artifactId>
+		<version>${spring.core.version}</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-beans</artifactId>
+	    <version>${spring.core.version}</version>
+	</dependency>
+	
+	<!-- For Spring Security -->
+	<dependency>
+	    <groupId>org.springframework.security</groupId>
+	    <artifactId>spring-security-core</artifactId>
+	    <version>${spring.security.version}</version>
+	</dependency>
+	<dependency>  
+	  <groupId>org.springframework.security</groupId>
+	  <artifactId>spring-security-ldap</artifactId>  
+	  <version>${spring.security.version}</version>  
+	</dependency>  
+	 
+	<dependency>  
+	  <groupId>org.springframework.security</groupId>
+	  <artifactId>spring-security-config</artifactId>  
+	  <version>${spring.security.version}</version>  
+	</dependency> 
+	<dependency> 
+	  <groupId>org.springframework.security</groupId>  
+	  <artifactId>spring-security-web</artifactId>  
+	  <version>${spring.security.version}</version> 
+	</dependency> 
+	 
+	<dependency> 
+	  <groupId>org.springframework.security</groupId>  
+	  <artifactId>spring-security-taglibs</artifactId>  
+	  <version>${spring.security.version}</version> 
+	</dependency> 
+	 
+	<dependency> 
+	  <groupId>org.springframework.security</groupId>  
+	  <artifactId>spring-security-acl</artifactId> 
+	  <version>${spring.security.version}</version> 
+	</dependency> 
+	
+	
+	<dependency>
+    	<groupId>cglib</groupId>
+    	<artifactId>cglib-nodep</artifactId>
+    	<version>2.2</version>
+    	<type>jar</type>
+    	<scope>compile</scope>
+    </dependency>
+    <dependency>
+    	<groupId>org.hibernate</groupId>
+    	<artifactId>hibernate-annotations</artifactId>
+    	<version>3.4.0.GA</version>
+    	<type>jar</type>
+    	<scope>compile</scope>
+    </dependency>
+	
+    
+	<!-- The JavaServer Pages Standard Tag Library (JSTL) encapsulates, as simple tags, core 
+	functionality common to many JSP applications. -->
+	<dependency>
+	    <groupId>javax.servlet</groupId>
+	    <artifactId>jstl</artifactId>
+	    <version>${javax.jstl-taglibs.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>taglibs</groupId>
+		<artifactId>standard</artifactId>
+		<version>${javax.jstl-taglibs.version}</version>
+	</dependency>
+	
+	<!-- Data Mapper package is a high-performance data binding package built 
+		on Jackson JSON processor -->
+	<dependency>
+		<groupId>org.codehaus.jackson</groupId>
+		<artifactId>jackson-mapper-asl</artifactId>
+		<version>${jackson.version}</version>
+		<type>jar</type>
+		<scope>compile</scope>
+	</dependency>
+
+	<!-- Jackson is a high-performance JSON processor (parser, generator) -->
+	<dependency>
+		<groupId>org.codehaus.jackson</groupId>
+		<artifactId>jackson-core-asl</artifactId>
+		<version>${jackson.version}</version>
+		<type>jar</type>
+		<scope>compile</scope>
+	</dependency>
+		
+	<!-- Logger -->
+    <dependency>
+    	<groupId>log4j</groupId>
+    	<artifactId>log4j</artifactId>
+    	<version>${log4j.version}</version>
+    	<type>jar</type>
+    	<scope>compile</scope>
+    </dependency>
+ 
+	<!-- The Simple Logging Facade for Java or (SLF4J) serves as a simple facade or abstraction 
+	for various logging frameworks, e.g. java.util.logging, log4j and logback, allowing the end 
+	user to plug in the desired logging framework at deployment time. -->
+    <dependency>
+    	<groupId>org.slf4j</groupId>
+    	<artifactId>slf4j-api</artifactId>
+    	<version>${slf4j.version}</version>
+    	<type>jar</type>
+    	<scope>compile</scope>
+    </dependency> 
+    <dependency>
+    	<groupId>org.slf4j</groupId>
+    	<artifactId>slf4j-log4j12</artifactId>
+    	<version>${slf4j.version}</version>
+    	<type>jar</type>
+    	<scope>compile</scope>
+    </dependency>
+    <dependency>
+    	<groupId>org.slf4j</groupId>
+    	<artifactId>jcl-over-slf4j</artifactId>
+    	<version>${slf4j.version}</version>
+    	<type>jar</type>
+    	<scope>compile</scope>
+    </dependency>
+	
+	<!-- Database pooling -->
+	<dependency>
+		<groupId>c3p0</groupId>
+		<artifactId>c3p0</artifactId>
+		<version>${c3p0.version}</version>
+	</dependency>
+	
+	<!--  MySQL Connector -->
+	<dependency>
+		<groupId>mysql</groupId>
+		<artifactId>mysql-connector-java</artifactId>
+		<version>${mysql.connector.version}</version>
+		<type>jar</type>
+		<scope>compile</scope>
+	</dependency>
+<!--     <dependency> -->
+<!--     	<groupId>mysql</groupId> -->
+<!--     	<artifactId>mysql-connector-java</artifactId> -->
+<!--     	<version>5.1.14</version> -->
+<!--     	<type>jar</type> -->
+<!--     	<scope>compile</scope> -->
+<!--     </dependency> -->
+	
+	<!-- Hibernate -->
+	<dependency>
+    	<groupId>org.hibernate</groupId>
+    	<artifactId>hibernate-core</artifactId>
+    	<version>3.3.2.GA</version>
+    </dependency>
+    <dependency>
+    	<groupId>jboss</groupId>
+    	<artifactId>javassist</artifactId>
+    	<version>3.7.ga</version>
+    	<type>jar</type>
+    	<scope>compile</scope>
+    </dependency>
+	<dependency>
+    	<groupId>javax.persistence</groupId>
+    	<artifactId>persistence-api</artifactId>
+    	<version>1.0</version>
+    	<type>jar</type>
+    	<scope>compile</scope>
+    </dependency>
+    <dependency>
+    	<groupId>org.springframework</groupId>
+    	<artifactId>spring-orm</artifactId>
+    	<version>${spring.core.version}</version>
+    	<type>jar</type>
+    	<scope>compile</scope>
+    </dependency>
+	
+	
+	<!-- Javax Servlet. This needs to be included for runtime only! -->
+	<dependency>
+		<groupId>javax.servlet</groupId>
+		<artifactId>servlet-api</artifactId>
+		<version>${javax.servlet-api.version}</version>
+		<scope>provided</scope>
+	</dependency>
+
+    <!-- Testing dependencies -->
+	<dependency>
+		<groupId>junit</groupId>
+		<artifactId>junit</artifactId>
+		<version>${junit.version}</version>
+		<type>jar</type>
+		<scope>test</scope>
+	</dependency>
+	<dependency>
+		<groupId>org.mockito</groupId>
+		<artifactId>mockito-all</artifactId>
+		<version>${mockito.version}</version>
+		<type>jar</type>
+		<scope>test</scope>
+	</dependency>
+    <dependency>
+    	<groupId>org.springframework</groupId>
+    	<artifactId>spring-test</artifactId>
+    	<version>${spring.core.version}</version>
+    	<type>jar</type>
+    	<scope>test</scope>
+    </dependency>
+  </dependencies>
+  <build>
+    <finalName>spring-jqgrid</finalName>
+    <plugins>
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-compiler-plugin</artifactId>
+			<version>${maven.compiler.plugin.version}</version>
+			<configuration>
+				<source>1.6</source>
+				<target>1.6</target>
+			</configuration>
+		</plugin>
+    </plugins>
+  </build>
+</project>
