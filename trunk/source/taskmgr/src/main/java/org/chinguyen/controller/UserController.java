@@ -69,6 +69,7 @@ public class UserController {
 			@RequestParam String lastName) {
 		
 		User newUser = new User(username, password, firstName, lastName);
+		newUser.setPassword(password);
 		Boolean result = userService.add(newUser);
 		return new StatusResponse(result);
 	}
