@@ -6,7 +6,6 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -20,7 +19,7 @@ import org.springframework.transaction.annotation.Transactional;
  * A custom {@link UserDetailsService} where user information is retrieved from
  * a JPA repository
  */
-@Service
+@Service("customUserDetailsService")
 @Transactional(readOnly = true)
 public class CustomUserDetailsService implements UserDetailsService {
 
@@ -35,7 +34,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 	public UserDetails loadUserByUsername(String username)
 			throws UsernameNotFoundException {
 		try {
-			org.chinguyen.domain.User domainUser = userService.get(new Long(1234));
+			org.chinguyen.domain.User domainUser = userService.findByUserName(username);
 			boolean enabled = true;
 			boolean accountNonExpired = true;
 			boolean credentialsNonExpired = true;

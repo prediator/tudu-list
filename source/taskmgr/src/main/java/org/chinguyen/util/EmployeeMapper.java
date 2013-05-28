@@ -5,10 +5,8 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.chinguyen.domain.Customer;
 import org.chinguyen.domain.Employee;
 import org.chinguyen.response.EmployeeDto;
-import org.chinguyen.service.EmployeeService;
 import org.chinguyen.service.EntityDAO;
 
 public class EmployeeMapper {

@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.util.DigestUtils;
+
 @Entity
 @Table(name = "user")
 public class User implements Serializable {
@@ -96,7 +98,7 @@ public class User implements Serializable {
 	}
 
 	public void setPassword(String password) {
-		this.password = password;
+		this.password = DigestUtils.md5DigestAsHex(password.getBytes());
 	}
 
 //	public Role getRole() {

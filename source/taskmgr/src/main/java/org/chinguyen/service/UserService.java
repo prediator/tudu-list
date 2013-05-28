@@ -10,6 +10,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projections;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.Resource;
@@ -69,11 +70,21 @@ public class UserService {
 
 		return user;
 	}
+	
+	public User findByUserName(String userName) {
+		Session session = sessionFactory.getCurrentSession();
+
+		// Retrieve existing user first
+		User user = (User) session.createCriteria(User.class)
+				.add(Restrictions.eq("username", userName)).uniqueResult();
+
+		return user;
+	}
 
 	public Boolean add(User user) {
 		Session session = sessionFactory.getCurrentSession();
-		User saved = (User) session.save(user);
-		if (saved == null)
+		Long savedId = (Long) session.save(user);
+		if (savedId == null)
 			return false;
 		return true;
 	}
