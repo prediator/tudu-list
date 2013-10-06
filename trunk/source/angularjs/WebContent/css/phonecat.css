@@ -1,0 +1,13 @@
+.phone-list .thumbnail img {
+    width: 150px;
+    margin: 10px;
+}
+
+.phone-detail img.thumbnail {
+    width: 150px;
+    padding: 10px;
+}
+
+.phone-detail img.thumbnail:hover {
+    cursor: pointer;
+}

@@ -1,0 +1,141 @@
+<div class="phone-detail">
+
+    <h2>{{phone.name}}</h2>
+
+    <p class="lead">{{phone.description}}</p>
+
+    <div class="thumbnail">
+        <img ng-src="{{mainImageUrl}}" class="phone">
+    </div>
+    <br/>
+    <ul class="thumbnails">
+        <li ng-repeat="img in phone.images">
+            <img ng-src="{{img}}" ng-click="setImage(img)" class="thumbnail">
+        </li>
+    </ul>
+
+    <table class="table table-bordered table-hover table-condensed">
+        <tr>
+            <th colspan="2">Battery</th>
+        </tr>
+        <tr>
+            <td>Type</td>
+            <td>{{phone.battery.type}}</td>
+        </tr>
+        <tr>
+            <td>Talk Time</td>
+            <td>{{phone.battery.talkTime}}</td>
+        </tr>
+        <tr>
+            <td>Standby time (max)</td>
+            <td>{{phone.battery.standbyTime}}</td>
+        </tr>
+
+        <tr>
+            <th colspan="2">Storage and Memory</th>
+        </tr>
+        <tr>
+            <td>RAM</td>
+            <td>{{phone.storage.ram}}</td>
+        </tr>
+        <tr>
+            <td>Internal Storage</td>
+            <td>{{phone.storage.flash}}</td>
+        </tr>
+        <tr>
+            <th colspan="2">Connectivity</th>
+        </tr>
+        <tr>
+            <td>Network Support</td>
+            <td>{{phone.connectivity.cell}}</td>
+        </tr>
+        <tr>
+            <td>WiFi</td>
+            <td>{{phone.connectivity.wifi}}</td>
+        </tr>
+        <tr>
+            <td>Bluetooth</td>
+            <td>{{phone.connectivity.bluetooth}}</td>
+        </tr>
+        <tr>
+            <td>Infrared</td>
+            <td>{{phone.connectivity.infrared | checkmark}}</td>
+        </tr>
+        <tr>
+            <td>GPS</td>
+            <td>{{phone.connectivity.gps | checkmark}}</td>
+        </tr>
+        <tr>
+            <th colspan="2">Android</th>
+        </tr>
+        <tr>
+            <td>OS Version</td>
+            <td>{{phone.android.os}}</td>
+        </tr>
+        <tr>
+            <td>UI</td>
+            <td>{{phone.android.ui}}</td>
+        </tr>
+        <tr>
+            <th colspan="2">Size and Weigth</th>
+        </tr>
+
+        <tr>
+            <td>Dimensions</td>
+            <td><span ng-repeat="dim in phone.sizeAndWeight.dimensions">{{dim}}; </span></td>
+        </tr>
+        <tr>
+            <td>Weight</td>
+            <td>{{phone.sizeAndWeight.weight}}</td>
+        </tr>
+        <tr>
+            <th colspan="2">Display</th>
+        </tr>
+        <tr>
+            <td>Screen size</td>
+            <td>{{phone.display.screenSize}}</td>
+        </tr>
+        <tr>
+            <td>Screen resolution</td>
+            <td>{{phone.display.screenResolution}}</td>
+        </tr>
+        <tr>
+            <td>Touch screen</td>
+            <td>{{phone.display.touchScreen | checkmark}}</td>
+        </tr>
+        <tr>
+            <th colspan="2">Hardware</th>
+        </tr>
+        <tr>
+            <td>CPU</td>
+            <td>{{phone.hardware.cpu}}</td>
+        </tr>
+        <tr>
+            <td>USB</td>
+            <td>{{phone.hardware.usb}}</td>
+        </tr>
+        <tr>
+            <td>Audio / headphone jack</td>
+            <td>{{phone.hardware.audioJack}}</td>
+        </tr>
+        <tr>
+            <td>FM Radio</td>
+            <td>{{phone.hardware.fmRadio | checkmark}}</td>
+        </tr>
+        <tr>
+            <td>Accelerometer</td>
+            <td>{{phone.hardware.accelerometer | checkmark}}</td>
+        </tr>
+        <tr>
+            <th colspan="2">Camera</th>
+        </tr>
+        <tr>
+            <td>Primary</td>
+            <td>{{phone.camera.primary}}</td>
+        </tr>
+        <tr>
+            <td>Features</td>
+            <td>{{phone.camera.features.join(', ')}}</td>
+        </tr>
+    </table>
+</div>

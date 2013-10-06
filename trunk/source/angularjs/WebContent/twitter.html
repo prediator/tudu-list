@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="Twitter">
+<head>
+    <title>Twitter</title>
+    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/bootstrap.css">
+</head>
+<body>
+<div ng-controller="TwitterCtrl">
+    <form class="form-horizontal">
+        <input type="text" ng-model="searchTerm">
+        <button class="btn" ng-click="doSearch()"><i class="icon-search"></i> Search</button>
+    </form>
+    <table class="table table-bordered table-striped table-hover">
+        <tr ng-repeat="tweet in twitterResult.results">
+            <td>{{tweet.text}}</td>
+            <td>{{tweet.from_user_name}} ({{tweet.from_user}})</td>
+        </tr>
+    </table>
+</div>
+<script type="text/javascript" src="vendor/angularjs/angular.min.js"></script>
+<script type="text/javascript" src="vendor/angularjs/angular-resource.min.js"></script>
+<script type="text/javascript" src="vendor/underscore/underscore.min.js"></script>
+<script type="text/javascript" src="js/twitter.js"></script>
+</body>
+</html>
