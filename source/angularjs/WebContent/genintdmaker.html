@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html ng-app="genintdmaker">
+<head>
+    <title>genintd maker • \,,/(^_^)\,,/</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="vendor/font-awsome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="vendor/google-code-prettify/prettify.css">
+    <link rel="stylesheet" href="css/genintdmaker.css">
+
+    <script src="vendor/modernizr-2.6.2.min.js"></script>
+</head>
+<body ng-controller="MainCtrl">
+
+<div id="page">
+
+    <div class="tab-container">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#" data-target="#general" data-toggle="tab">General Settings</a></li>
+            <li><a href="#" data-target="#nodes" data-toggle="tab">Node Settings</a></li>
+            <li><a href="#" data-target="#pipeline" data-toggle="tab">Pipeline Settings</a></li>
+            <li class="button pull-right">
+                <button class="pull-right btn btn-primary" ng-click="make()" data-toggle="modal" href="#final-output">
+                    <i class="icon-play icon-white"></i> Make
+                </button>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <!-- General Settings -->
+            <div class="tab-pane active" id="general">
+                <form class="form-horizontal">
+                    <div class="control-group">
+                        <label class="control-label">Platform</label>
+                        <div class="controls">
+                            <label class="radio">
+                                <input type="radio" name="platform" value="windows" ng-model="general.platform">
+                                Windows
+                            </label>
+                            <label class="radio">
+                                <input type="radio" name="platform" value="linux" ng-model="general.platform">
+                                Linux
+                            </label>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="library_path">Library Path</label>
+                        <div class="controls">
+                            <input type="text" id="library_path" class="input-xlarge"
+                                   ng-model="general.library_path">
+                        </div>
+                    </div>
+                    <hr/>
+                    <div class="control-group">
+                        <label class="control-label" for="log_file_name">Log File</label>
+                        <div class="controls">
+                            <input type="text" id="log_file_name" class="input-xlarge" placeholder="genintd.log"
+                                   ng-model="general.log_file" ng>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="log_level">Log Level</label>
+                        <div class="controls">
+                            <select id="log_level" class="input-medium"
+                                    ng-model="general.log_level"
+                                    ng-options="c.name for c in init.log_levels">
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- Node Settings -->
+            <div class="tab-pane" id="nodes"></div>
+            <!-- Pipeline Settings -->
+            <div class="tab-pane" id="pipeline"></div>
+        </div>
+    </div>
+    <footer>
+        <p class="text-center"><strong>genintd</strong> maker</p>
+    </footer>
+</div>
+
+<!-- Final Output Dialog -->
+<div id="final-output" class="modal hide fade" role="dialog">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h3>Final Configuration</h3>
+    </div>
+    <div class="modal-body">
+        <pre class="prettyprint linenums" prettify="finalOutput"></pre>
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal">Close</button>
+    </div>
+</div>
+
+<!--<script id="node-list-header-template" type="text/x-handlebars-template">-->
+<!--<li class="nav-header">{{node_header}}</li>-->
+<!--</script>-->
+<!--<script id="node-list-item-template" type="text/x-handlebars-template">-->
+<!--<li>-->
+<!--<a href="#">-->
+<!--{{display_name}}-->
+<!--<button class="add-node btn btn-mini btn-link pull-right"-->
+<!--data-placement="bottom">-->
+<!--<i class="icon-plus"></i>-->
+<!--</button>-->
+<!--<button class="node-info btn btn-mini btn-link pull-right"-->
+<!--data-placement="bottom">-->
+<!--<i class="icon-info-sign"></i>-->
+<!--</button>-->
+<!--</a>-->
+<!--</li>-->
+<!--</script>-->
+<!-- Node Selection Menu -->
+<!--<div class="well node-menu">-->
+<!--<ul id="node-list" class="nav nav-list"></ul>-->
+<!--</div>-->
+
+<script src="vendor/angularjs/angular.min.js"></script>
+<script src="vendor/jquery/jquery-1.9.1.min.js"></script>
+<script src="vendor/bootstrap/bootstrap.min.js"></script>
+<script src="vendor/google-code-prettify/prettify.js"></script>
+<script src="vendor/underscore/underscore.min.js"></script>
+
+<script src="js/plugins.js"></script>
+<script src="js/genintdmaker/app.js"></script>
+<script src="js/genintdmaker/controllers.js"></script>
+
+</body>
+</html>

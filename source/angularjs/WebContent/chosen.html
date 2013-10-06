@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html ng-app="chosen">
+<head>
+    <title>AngularJS + Chosen Plugin</title>
+
+    <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="vendor/jquery/plugins/chosen/chosen.css">
+
+    <script src="vendor/jquery/jquery-1.9.1.min.js"></script>
+    <script src="vendor/jquery/plugins/chosen/chosen.jquery.min.js"></script>
+    <script src="vendor/angularjs/angular.min.js"></script>
+    <script type="text/javascript" src="js/chosen.js"></script>
+</head>
+<body>
+<div class="container" ng-controller="RecipientsCtrl">
+    <h1>AngularJS + Chosen Plugin</h1>
+
+    <select data-placeholder="Choose a Recipient" multiple class="span4" chosen
+            ng-model="recipients" ng-options="recipient.name for recipient in recipientsList">
+    </select>
+
+    <p ng-repeat="recipient in recipients"><strong>{{recipient.name}}</strong></p>
+</div>
+</body>
+</html>

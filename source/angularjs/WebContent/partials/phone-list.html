@@ -1,0 +1,24 @@
+<h2>List of Phones</h2>
+<div class="phone-list row">
+    <div class="span8">
+        <ul class="thumbnails">
+            <li ng-repeat="phone in phones | filter:query | orderBy:orderProp" class="span8">
+                <div class="thumbnail clearfix">
+                    <a href="#/phones/{{phone.id}}" class="pull-right"><img ng-src="{{phone.imageUrl}}"></a>
+                    <div class="caption">
+                        <h4><a href="#/phones/{{phone.id}}">{{phone.name}}</a></h4>
+                        <p>{{phone.snippet}}</p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="span4">
+        <p>Total number of phones: <strong>{{getTotalPhones()}}</strong></p>
+        <input type="text" ng-model="query" placeholder="Filter..." class="span4">
+        <select ng-model="orderProp" class="span4">
+            <option value="name">Alphabetical</option>
+            <option value="age">Newest</option>
+        </select>
+    </div>
+</div>
