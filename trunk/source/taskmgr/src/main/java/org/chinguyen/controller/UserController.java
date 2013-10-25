@@ -94,4 +94,7 @@ public class UserController {
 		Boolean result = userService.delete(existingUser);
 		return new StatusResponse(result);
 	}
+	public void changePassword(){
+		
+	}
 }
